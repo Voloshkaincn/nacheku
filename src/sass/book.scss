@@ -1,0 +1,309 @@
+@import "normalize";
+
+/*breakpoints*/
+$xxl: 1440px;
+$xl: 1200px;
+$lg: 992px;
+$md: 768px;
+$sm: 576px;
+
+/*====== fonts =======*/
+@font-face {
+    font-family: "KyivTypeSans";
+    src: url("../fonts/KyivType/KyivTypeSans-Black2.woff2") format("woff2"),
+        url("../fonts/KyivType/KyivTypeSans-Black2.woff") format("woff");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "PT Sans";
+    src: url("../fonts/PT_Sans_Regular/PT_Sans_Regular.woff2") format("woff2"),
+        url("../fonts/PT_Sans_Regular/PT_Sans_Regular.woff2") format("woff");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "PT Sans";
+    src: url("../fonts/PT_Sans_Bold/PT_Sans_Bold.woff2") format("woff2"),
+        url("../fonts/PT_Sans_Bold/PT_Sans_Bold.woff") format("woff");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+/*====== end fonts =======*/
+
+html {
+    font-size: 16px;
+}
+body {
+    font-size: 20px;
+    font-family: "PT Sans", sans-serif;
+    line-height: 1.5;
+    color: #000000;
+}
+.container {
+    padding: 0 10%;
+    margin-left: auto;
+    margin-right: auto;
+    @media (min-width: $xxl) {
+        padding: 0 calc(50vw - 560px);
+    }
+}
+
+.strong {
+    font-weight: bold;
+}
+.text-center {
+    text-align: center;
+}
+.color {
+    color: #f09300;
+}
+.btn {
+    background: #f09300;
+    color: #fff;
+    border-radius: 1em;
+    border-radius: 3em;
+    display: inline-flex;
+    line-height: 1;
+    padding: 1em 2em 1.05em;
+    position: relative;
+    font-weight: bold;
+    transition: all 0.3s;
+    &:after {
+        content: "";
+        display: block;
+        width: 2px;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        background: #fff;
+    }
+    &:focus {
+        outline: none;
+    }
+    &:hover {
+        opacity: 0.7;
+    }
+    &__price {
+        font-size: 2em;
+        font-family: "KyivTypeSans", serif;
+        font-weight: 900;
+        display: flex;
+        align-items: center;
+        margin-right: 1em;
+    }
+    &__currency {
+        font-family: PT Sans, sans-serif;
+        font-weight: 400;
+    }
+}
+
+h1,
+.h1 {
+    font-family: "KyivTypeSans", serif;
+    font-weight: 900;
+    font-size: 48px;
+    line-height: 1.5;
+}
+h2,
+.h2 {
+    font-family: "KyivTypeSans", serif;
+    font-size: 1.8em;
+    font-weight: 900;
+    line-height: 1.5;
+    width: 100%;
+    text-align: center;
+    margin: 1em 0 0.3em;
+}
+h3,
+h3 {
+    font-family: "KyivTypeSans", serif;
+    font-size: 1.4em;
+    font-weight: 900;
+    line-height: 1.5;
+}
+.content {
+    transition: all 0.3s;
+    padding: 15px 0;
+}
+.white {
+    background: #fff;
+    color: #000000;
+    .highlight {
+        background: #ececec;
+    }
+}
+.light {
+    background: #f0e9d7;
+    color: #1a1a1a;
+    .highlight {
+        background: #ded8c7;
+    }
+}
+.mt-0 {
+    margin-top: 0;
+}
+.mt-3 {
+    margin-top: 1em;
+}
+
+.header {
+    background: #333333;
+    padding: 0.5em 1.5em;
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    z-index: 2;
+    @media (min-width: $xl) {
+        padding: 0.7em 2.5em;
+    }
+    &__title {
+        color: #fff;
+        text-transform: uppercase;
+        font-family: "KyivTypeSans", serif;
+        font-size: 16px;
+        font-weight: 900;
+        line-height: 2;
+        &_color {
+            background: #f09300;
+            padding: 0.2em 0.5em 0.24em 0.75em;
+            margin-right: 0.5em;
+            transition: all 0.3s;
+        }
+        &:hover {
+            .header__title_color {
+                background: #ffac28;
+            }
+        }
+    }
+    &__panel {
+        display: flex;
+        margin-left: auto;
+        flex-wrap: wrap;
+    }
+}
+
+.rangefz {
+    font-family: "KyivTypeSans", serif;
+    font-size: 16px;
+    font-weight: 900;
+    line-height: 1.5;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    &__min {
+        font-size: 16px;
+        margin-right: 0.5em;
+    }
+    &__max {
+        font-size: 32px;
+        margin-left: 0.25em;
+        margin-top: -0.1em;
+        @media (min-width: $xl) {
+            margin-left: 0.5em;
+        }
+    }
+}
+.range {
+    position: relative;
+    cursor: pointer;
+    &__bg {
+        width: 160px;
+        height: 4px;
+        background-color: #bfbfbf;
+        z-index: 1;
+    }
+    &__progress {
+        position: absolute;
+        width: 48px;
+        height: 4px;
+        background-color: #f09300;
+        z-index: 2;
+    }
+    &__slider {
+        position: absolute;
+        top: -8px;
+        left: 40px;
+        width: 20px;
+        height: 20px;
+        padding: 0;
+        background-color: #fff;
+        box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.6);
+        border-radius: 50%;
+        transition: background-color 0.3s;
+        cursor: pointer;
+        z-index: 3;
+        margin-left: -10px;
+        // &:focus,
+        // &:hover {
+        //     background-color: #fff;
+        //     box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+        // }
+    }
+}
+.bigradio {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+    @media (min-width: $xl) {
+        margin-left: 55px;
+    }
+    &__item {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        position: relative;
+        margin-left: 14px;
+        cursor: pointer;
+        &_active {
+            box-shadow: 0 0 0 2px #333, 0 0 0 4px #f09300;
+        }
+    }
+    &__input {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        opacity: 0;
+        cursor: pointer;
+    }
+}
+.banner {
+    .glide__slides {
+        margin: 0;
+    }
+    .glide__slide {
+        height: auto;
+    }
+    .glide__slide img {
+        width: 100%;
+        height: 100%;
+        max-height: 50vh;
+        object-fit: cover;
+        object-position: center 25%;
+    }
+}
+.text_sm {
+    font-size: 1rem;
+}
+.action {
+    padding: 0 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 2.3em;
+}
