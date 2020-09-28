@@ -80,6 +80,20 @@ for (radioBg of radiosBg) {
     });
 }
 
+/****** toggle settings panel ********/
+let togglePanel = document.getElementById('togglePanel');
+let panel = document.getElementById('panel');
+
+togglePanel.addEventListener('click', function () {
+    if (!this.classList.contains('panel__btn_active')) {
+        this.classList.add('panel__btn_active')
+        panel.classList.add('header__panel_show')
+    } else {
+        this.classList.remove('panel__btn_active')
+        panel.classList.remove('header__panel_show')
+    }
+})
+
 new Glide('.banner', {
     type: 'carousel',
     startAt: 0,
@@ -87,5 +101,17 @@ new Glide('.banner', {
     animationDuration: 8000,
     animationTimingFunc: 'linear',
     autoplay: 1,
-    gap: 0
+    gap: 0,
+    breakpoints: {
+        1024: {
+            perView: 2,
+            animationDuration: 1000,
+            autoplay: 3000,
+        },
+        576: {
+            perView: 1,
+            animationDuration: 1000,
+            autoplay: 3000,
+        }
+    }
 }).mount()

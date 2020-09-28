@@ -1,17 +1,30 @@
 let controller, scene, scene2;
 
 function createScrollMagic() {
+
+    controller = new ScrollMagic.Controller();
+
     let screenHeight = document.documentElement.clientHeight
     let screenWidth = document.documentElement.clientWidth
+    let crowDuration
 
     if (screenWidth >= screenHeight) {
-        controller = new ScrollMagic.Controller();
-
-        scene = new ScrollMagic.Scene({ triggerElement: "#first", duration: (screenHeight - screenWidth * 0.21), triggerHook: '0' })
+        crowDuration = screenHeight - screenWidth * 0.21
+        scene = new ScrollMagic.Scene({ triggerElement: "#first", duration: crowDuration, triggerHook: '0' })
             .setPin("#claw")
-            .addIndicators({ name: "claw" })
+            // .addIndicators({ name: "claw" })
+            .addTo(controller);
+    } else {
+        crowDuration = screenHeight - (0.9 * screenHeight - screenWidth * 0.36)
+        scene = new ScrollMagic.Scene({ triggerElement: "#first", duration: crowDuration, triggerHook: '0' })
+            .setPin("#claw")
+            // .addIndicators({ name: "claw" })
             .addTo(controller);
 
+    }
+
+
+    if (screenWidth >= screenHeight && screenWidth > 992) {
         let opinionHeight = document.getElementById('opinion').clientHeight
         let chertkovHeight = document.getElementById('chertkov').clientHeight
         document.getElementById('trigerChertkov').style.top = chertkovHeight + 'px'

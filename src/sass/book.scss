@@ -38,15 +38,21 @@ html {
     font-size: 16px;
 }
 body {
-    font-size: 20px;
+    font-size: 16px;
     font-family: "PT Sans", sans-serif;
     line-height: 1.5;
     color: #000000;
+    @media (min-width: $sm) {
+        font-size: 20px;
+    }
 }
 .container {
-    padding: 0 10%;
+    padding: 0 15px;
     margin-left: auto;
     margin-right: auto;
+    @media (min-width: $sm) {
+        padding: 0 10%;
+    }
     @media (min-width: $xxl) {
         padding: 0 calc(50vw - 560px);
     }
@@ -153,7 +159,7 @@ h3 {
 
 .header {
     background: #333333;
-    padding: 0.5em 1.5em;
+    padding: 0.5em 15px;
     position: sticky;
     top: 0;
     left: 0;
@@ -161,8 +167,10 @@ h3 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
     z-index: 2;
+    @media (min-width: $sm) {
+        padding: 0.5em 1.5em;
+    }
     @media (min-width: $xl) {
         padding: 0.7em 2.5em;
     }
@@ -170,14 +178,23 @@ h3 {
         color: #fff;
         text-transform: uppercase;
         font-family: "KyivTypeSans", serif;
-        font-size: 16px;
+        font-size: 4.3vw;
         font-weight: 900;
-        line-height: 2;
+        line-height: 1.3;
+        @media (min-width: 375px) {
+            font-size: 16px;
+        }
+        @media (min-width: $sm) {
+            line-height: 2;
+        }
         &_color {
             background: #f09300;
-            padding: 0.2em 0.5em 0.24em 0.75em;
+            padding: 0.1em 0.5em 0.14em 0.75em;
             margin-right: 0.5em;
             transition: all 0.3s;
+            @media (min-width: $sm) {
+                padding: 0.2em 0.5em 0.24em 0.75em;
+            }
         }
         &:hover {
             .header__title_color {
@@ -186,12 +203,49 @@ h3 {
         }
     }
     &__panel {
-        display: flex;
-        margin-left: auto;
-        flex-wrap: wrap;
+        @media (max-width: ($lg - 1px)) {
+            transform: scaleY(0);
+            transform-origin: top;
+            display: flex;
+            width: 100%;
+            flex-wrap: wrap;
+            transition: all 0.5s;
+            z-index: -1;
+            padding: 0.3em 1.5em;
+            position: absolute;
+            background: #333;
+            left: 0;
+            top: calc(100% - 1px);
+            &_show {
+                transform: scaleY(1);
+            }
+        }
+
+        @media (min-width: $lg) {
+            display: flex;
+            margin-left: auto;
+        }
     }
 }
-
+.panel__btn {
+    width: 40px;
+    height: 40px;
+    background-image: url(../image/gear.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 0;
+    @media (min-width: $lg) {
+        display: none;
+    }
+    &:focus {
+        outline: none;
+    }
+    &_active {
+        background-image: url(../image/close.svg);
+        background-size: 80%;
+    }
+}
 .rangefz {
     font-family: "KyivTypeSans", serif;
     font-size: 16px;
@@ -224,15 +278,18 @@ h3 {
     }
     &__progress {
         position: absolute;
-        width: 48px;
+        width: 0px;
         height: 4px;
         background-color: #f09300;
         z-index: 2;
+        @media (min-width: $sm) {
+            width: 48px;
+        }
     }
     &__slider {
         position: absolute;
         top: -8px;
-        left: 40px;
+        left: 0px;
         width: 20px;
         height: 20px;
         padding: 0;
@@ -243,6 +300,9 @@ h3 {
         cursor: pointer;
         z-index: 3;
         margin-left: -10px;
+        @media (min-width: $sm) {
+            left: 40px;
+        }
         // &:focus,
         // &:hover {
         //     background-color: #fff;
@@ -254,7 +314,10 @@ h3 {
     color: #fff;
     display: flex;
     align-items: center;
-    margin-left: 20px;
+    margin-left: 10%;
+    @media (min-width: $lg) {
+        margin-left: 20px;
+    }
     @media (min-width: $xl) {
         margin-left: 55px;
     }
