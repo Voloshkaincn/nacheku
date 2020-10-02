@@ -391,15 +391,7 @@ h3 {
 
 .header__title_color {
   background: #f09300;
-  padding: 0.1em 0.5em 0.14em 0.75em;
-  margin-right: 0.5em;
   transition: all 0.3s;
-}
-
-@media (min-width: 576px) {
-  .header__title_color {
-    padding: 0.2em 0.5em 0.24em 0.75em;
-  }
 }
 
 .header__title:hover .header__title_color {

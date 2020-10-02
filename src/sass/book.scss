@@ -189,12 +189,7 @@ h3 {
         }
         &_color {
             background: #f09300;
-            padding: 0.1em 0.5em 0.14em 0.75em;
-            margin-right: 0.5em;
             transition: all 0.3s;
-            @media (min-width: $sm) {
-                padding: 0.2em 0.5em 0.24em 0.75em;
-            }
         }
         &:hover {
             .header__title_color {

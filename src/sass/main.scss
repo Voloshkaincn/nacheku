@@ -1,4 +1,5 @@
 @import "normalize";
+@import "modal";
 
 /*colors*/
 $main-color: #f09300;
@@ -54,7 +55,10 @@ $sm: 576px;
 /*====== end fonts =======*/
 
 html {
-    font-size: 12px;
+    font-size: 10px;
+    @media (min-width: 320px) {
+        font-size: 12px;
+    }
     @media (min-width: $sm) {
         font-size: 14px;
     }
@@ -63,10 +67,13 @@ html {
     }
 }
 body {
-    font-size: 16px;
+    font-size: 12px;
     font-family: "PT Sans", sans-serif;
     line-height: 1.5;
     color: #000000;
+    @media (min-width: 320px) and (min-height: 400px) {
+        font-size: 16px;
+    }
     @media (min-width: $sm) and (min-height: 490px) {
         font-size: 18px;
     }
@@ -122,17 +129,20 @@ p {
 .h1 {
     font-family: "KyivTypeSans", serif;
     font-weight: 900;
-    font-size: 8.5vw;
-    line-height: 1.5;
+    font-size: 6vw;
+    line-height: 1.2;
     text-transform: uppercase;
     margin: 0.5em 0 0.2em;
     position: relative;
+    @media (max-height: 400px) {
+        font-size: 5.5vw;
+    }
+    @media (max-width: ($sm - 1px)) and (min-height: 576px) {
+        line-height: 1.5;
+        font-size: 8.5vw;
+    }
     @media (min-width: $sm) and (min-height: 490px) {
         margin: 0.5em 0;
-    }
-    @media (min-width: $sm) {
-        font-size: 6vw;
-        line-height: 1.2;
     }
     @media (min-width: $md) and (orientation: landscape) {
         -webkit-text-stroke: 2px;
@@ -262,7 +272,7 @@ p {
 }
 .scrollnext {
     display: none;
-    @media (min-height: 767px) {
+    @media (min-height: 767px) and(min-width: $lg) {
         display: block;
         width: 52px;
         height: 63px;
@@ -356,7 +366,7 @@ p {
     color: #fff;
     position: relative;
     display: flex;
-    align-items: center;
+    // align-items: center;
     padding-bottom: 60vw;
     padding-top: 0;
     @media (min-width: $md) and (orientation: landscape) {
@@ -546,6 +556,9 @@ p {
         @media (hover) {
             &:hover:after {
                 animation: animRight 1.1s ease-in-out infinite;
+                @media (max-width: 991px) {
+                    animation: none;
+                }
             }
         }
 
@@ -556,6 +569,9 @@ p {
             @media (hover) {
                 &:hover:after {
                     animation: animLeft 1.1s ease-in-out infinite;
+                    @media (max-width: 991px) {
+                        animation: none;
+                    }
                 }
             }
         }
@@ -1122,9 +1138,12 @@ p {
         margin-top: 0;
     }
     &__img {
-        width: 65px;
+        width: 45px;
         margin-left: 0.8em;
         display: block;
+        @media (min-width: $md) {
+            width: 65px;
+        }
     }
     &:hover {
         opacity: 0.7;
