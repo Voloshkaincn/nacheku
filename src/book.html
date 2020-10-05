@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
     <meta charset="UTF-8">
@@ -10,7 +10,7 @@
     <meta property="og:title" content="Схватка с раком без права на поражение. Глава 1" />
     <meta property="og:description"
         content="Читать книгу. Эффективная борьба с онкологическими заболеваниями. Ваша мотивация на победу!" />
-    <meta property="og:image" content="http://1047754.ufexpo.web.hosting-test.net/Nacheku/image/book_cover.jpg" />
+    <meta property="og:image" content="https://fighting-cancer.win/image/book_cover.jpg" />
     <meta property="og:site_name" content="НАЧЕКУ!" />
     <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
@@ -20,7 +20,7 @@
     <meta name="msapplication-TileColor" content="#f09300">
     <meta name="theme-color" content="#ffffff">
 
-    <link rel="stylesheet" href="css/book.min.css">
+    <link rel="stylesheet" href="css/book.min.css?05.10">
     <link rel="stylesheet" href="libs/glide.core.min.css">
 </head>
 
@@ -57,9 +57,9 @@
             <div class="glide__track" data-glide-el="track">
                 <ul class="glide__slides">
                     <li class="glide__slide">
-                        <img src="image/photo1.jpg" alt="photo"></li>
-                    <li class="glide__slide"><img src="image/photo2.jpg" alt="photo"></li>
-                    <li class="glide__slide"><img src="image/photo3.jpg" alt="photo"></li>
+                        <img src="image/photo1.jpg" alt="Юрий Чертков"></li>
+                    <li class="glide__slide"><img src="image/photo2.jpg" alt="Юрий Чертков"></li>
+                    <li class="glide__slide"><img src="image/photo3.jpg" alt="Юрий Чертков"></li>
                 </ul>
             </div>
         </div>
@@ -1006,14 +1006,13 @@
 
             </div>
             <div class="action">
-                <button class="btn">
+                <button class="btn call-modal" data-modal="order">
                     <div class="btn__price">240 <span class="btn__currency"> ₴</span></div>
                     <div>Оформить<br>предзаказ</div>
                 </button>
                 <p class="color strong">Бесплатная доставка</p>
                 <p class="text_sm">
-                    Вы&nbsp;можете оплатить книгу платежной картой прямо на&nbsp;сайте или отправить заявку,
-                    и&nbsp;с&nbsp;вами свяжутся. Доставка осуществляется в&nbsp;любой регион Украины &laquo;Новой
+                    Доставка осуществляется в&nbsp;любой регион Украины &laquo;Новой
                     Почтой&raquo;.
                     Оформляя предзаказ, вы&nbsp;экономите 30&nbsp;% (стандартная цена книги&nbsp;&mdash; 340&nbsp;грн,
                     цена
@@ -1022,8 +1021,134 @@
             </div>
         </div>
     </div>
+
+    <!-- MODAL -->
+
+    <div id="order" class="order modal">
+        <div class="modal__container">
+            <div class="form__points">
+                <div class="form__point form__point_active toStep1" data-step="1">1</div>
+                <div class="form__point toStep2" data-step="2">2</div>
+            </div>
+            <button class="modal__close"></button>
+            <div class="modal__content">
+
+                <form action="#" id="mail-form" class="form">
+                    <div id="step1" class="form__step form__step_active">
+                        <h2 class="modal__title">Оформление предзаказа</h2>
+                        <div class="form__block">
+                            <div class="form__row">
+                                <label class="quantity__label">Книга «Начеку! Схватка с раком без
+                                    права на поражение», Ю. Чертков,
+                                    340&nbsp;₴</label>
+                                <div class="quantity">
+                                    <div class="quantity-button quantity-down">
+                                        <div class="quantity__operator"></div>
+                                    </div>
+                                    <input class="quantity__input" type="number" min="1" max="9" step="1" value="1">
+                                    <div class="quantity-button quantity-up">
+                                        <div class="quantity__operator quantity__operator_pluse"></div>
+                                    </div>
+
+                                </div>
+                                <div class="quantity__rez">
+                                    <span id="quantitySum">340</span> ₴
+                                </div>
+                            </div>
+                            <div class="form__shine">
+                                <div>Скидка 30 %</div>
+                                <div id="saleSum">–<span id="saleRez">100</span> ₴</div>
+                            </div>
+                            <div class="form__row form__total">
+                                <div>Итого:</div>
+                                <div><span id="total">240</span> ₴</div>
+                            </div>
+                        </div>
+                        <div class="form__grid">
+                            <div class="form__group">
+                                <label class="label" for="name">Имя</label>
+                                <input type="text" name="name" id="name" class="input required" placeholder="Имя">
+                            </div>
+                            <div class="form__group">
+                                <label class="label" for="surname">Фамилия</label>
+                                <input type="text" name="surname" id="surname" class="input required"
+                                    placeholder="Фамилия">
+                            </div>
+                            <div class="form__group">
+                                <label class="label" for="email">E-mail</label>
+                                <input type="text" name="email" id="inputEmail" class="input required"
+                                    placeholder="E-mail">
+                            </div>
+                            <div class="form__group">
+                                <label class="label" for="phone">Телефон</label>
+                                <input type="text" name="phone" id="inputPhone" class="input required"
+                                    placeholder="Телефон">
+                            </div>
+                        </div>
+                        <div class="form__submit">
+                            <div id="toStep2" class="form__btn toStep2" data-step="2">Указать адрес доставки</div>
+
+                        </div>
+                    </div>
+                    <div id="step2" class="form__step">
+                        <div class="form__text">После оформления предзаказа с вами свяжется сотрудник издательства.
+                            Книга доставляется
+                            бесплатно на любое из отделений
+                            «Новой Почты».
+                        </div>
+                        <h2 class="modal__title">Адрес доставки</h2>
+                        <div class="form__deliv">
+                            <select class="custom-select" placeholder="Регіон" name="region" id="area">
+                                <option value=" ">Регион</option>
+                            </select>
+                            <select disabled class="custom-select" placeholder="Місто" name="city" id="city">
+                                <option value=" ">Город</option>
+
+                            </select>
+                            <select disabled class="custom-select" placeholder="Відділення" name="department"
+                                id="warehouse">
+                                <option value=" ">Отделение</option>
+
+                            </select>
+                        </div>
+                        <div class="form__submit">
+                            <button id="submit" class="form__btn">Подтвердить предзаказ</button>
+                        </div>
+
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="thankyou" class="order modal">
+        <div class="modal__container thankyou">
+            <button class="modal__close"></button>
+            <div class="content_center">
+                <h1 class="thankyou__title">Спасибо!</h1>
+                <!-- <div class="thankyou__image">
+                    <img class="thankyou__img" src="image/star.svg" alt="спасибо">
+                    
+                </div> -->
+                <div class="thankyou__text">
+                    Ваша заявка на предзаказ книги отправлена.
+                    В&nbsp;ближайшее время с вами свяжется сотрудник издательства.
+                    Вы можете позвонить нам по телефону<br>
+                    <a href="tel:+380933529269">+380 (93) 352-92-69</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <script src="libs/glide.min.js"></script>
     <script src="js/book.js"></script>
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="libs/masket.min.js"></script>
+    <script src="form/form.js?05.10"></script>
+
 
 </body>
 
